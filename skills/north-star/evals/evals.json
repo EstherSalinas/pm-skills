@@ -1,0 +1,45 @@
+{
+  "skill_name": "north-star",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Quiero definir el North Star Metric de mi newsletter 'TechPM Weekly' antes de construir un árbol de KPIs encima. Te paso el documento de estrategia (strategy.md) y un export de suscriptores (subscribers.csv) con emails recibidos/abiertos únicos en los últimos 6 meses por persona. Ayúdame a elegir y definir la métrica principal.",
+      "expected_output": "Reads strategy.md before proposing candidates, computes real numbers from subscribers.csv (not hypothetical), generates 2+ candidates and scores them with the 7-question checklist, defines the winner precisely, lists 3-6 inputs, states a revisit trigger.",
+      "files": ["strategy.md", "subscribers.csv"],
+      "assertions": [
+        {"id": "reads_strategy_doc", "text": "References specific content from strategy.md (e.g. the dual objective, the positioning, or the newsletter's role) before proposing candidates"},
+        {"id": "computes_real_numbers", "text": "Computes an actual number/ratio/threshold from subscribers.csv data rather than describing the approach only hypothetically"},
+        {"id": "multiple_candidates", "text": "Generates at least 2 distinct North Star candidates, not just one"},
+        {"id": "rejects_a_candidate", "text": "Explicitly rejects at least one candidate with a stated reason (not just picks a winner in isolation)"},
+        {"id": "applies_checklist", "text": "Applies the 7-question checklist (or clearly equivalent criteria: customer value, leading vs lagging, actionable, vanity metric check) to score candidates"},
+        {"id": "defines_inputs", "text": "Defines 3-6 named inputs for the chosen North Star"},
+        {"id": "states_revisit_trigger", "text": "States a concrete signal for when to revisit the North Star"}
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Estamos lanzando una app de hábitos (tipo streaks diarios) y quiero fijar el North Star Metric antes de que el equipo se pierda construyendo features sueltas. No tenemos ningún documento de estrategia ni vision statement todavía, solo la idea del producto.",
+      "expected_output": "Builds or asks for a lightweight vision statement before naming metric candidates, identifies the 'game' being played, generates 2+ candidates (flagging the DAU/streak-count vanity trap habit apps commonly fall into), defines inputs.",
+      "files": [],
+      "assertions": [
+        {"id": "builds_vision_first", "text": "Builds a lightweight vision statement (or explicitly asks the user to co-create one) before jumping to metric candidates"},
+        {"id": "identifies_game", "text": "Explicitly names which 'game' the product plays (attention/transaction/productivity) and why"},
+        {"id": "multiple_candidates", "text": "Generates at least 2 distinct North Star candidates, not just one"},
+        {"id": "flags_vanity_risk", "text": "Explicitly flags a vanity-metric risk relevant to habit apps (e.g. raw streak count, DAU, app opens) rather than silently avoiding or silently picking it"},
+        {"id": "defines_inputs", "text": "Defines 3-6 named inputs for the chosen North Star"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Creo que nuestro North Star Metric debería ser el número total de usuarios registrados en la app. ¿Te parece bien? Quiero cerrarlo hoy para presentarlo mañana al equipo.",
+      "expected_output": "Does not simply agree; identifies 'registered users' as a named vanity-metric example, applies the checklist reasoning, and proposes how to find a better alternative.",
+      "files": [],
+      "assertions": [
+        {"id": "does_not_rubber_stamp", "text": "Does not simply validate/agree with 'total registered users' as a good North Star"},
+        {"id": "names_vanity_pattern", "text": "Explicitly identifies 'registered users' as matching the vanity-metric / lagging-registration pattern the checklist warns against"},
+        {"id": "applies_checklist_reasoning", "text": "Gives structured reasoning against at least 2 of the 7 checklist criteria (not just a vague objection)"},
+        {"id": "proposes_path_forward", "text": "Proposes a concrete alternative direction or a next step to find a better candidate, rather than just rejecting without offering a path forward"}
+      ]
+    }
+  ]
+}
