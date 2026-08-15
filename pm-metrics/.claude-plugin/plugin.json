@@ -1,0 +1,10 @@
+{
+  "name": "pm-metrics",
+  "displayName": "PM Metrics",
+  "description": "Define a product's North Star Metric and decompose it into a full KPI tree — north-star chooses and pressure-tests the top metric, kpi-tree decomposes it into inputs with a MECE check at every level.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Esther Salinas",
+    "email": "esther.paneque@gmail.com"
+  }
+}
