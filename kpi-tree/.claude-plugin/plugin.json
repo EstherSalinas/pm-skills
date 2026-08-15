@@ -1,0 +1,10 @@
+{
+  "name": "kpi-tree",
+  "displayName": "KPI Tree",
+  "description": "Build a KPI tree from a North Star or goal down to the inputs that drive it, with a MECE check at every level. Based on the method by Petra Wille & Shaun Russell.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Esther Salinas",
+    "email": "esther.paneque@gmail.com"
+  }
+}
