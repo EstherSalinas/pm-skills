@@ -1,39 +1,39 @@
 # pm-skills
 
-Skills de [Claude Code](https://claude.com/claude-code) para trabajo de product management —
-metodologías reales empaquetadas para que Claude las siga de forma consistente, en vez de
-depender de que se me ocurra pedir el rigor cada vez.
+[Claude Code](https://claude.com/claude-code) skills for product management work —
+real methodologies packaged so Claude follows them consistently, instead of relying on me
+remembering to ask for the rigor every time.
 
 ## Skills
 
-- **[`north-star`](skills/north-star/)** — elige, define y pressure-testea el North Star
-  Metric de un producto antes de construir nada encima. Basada en "The North Star Playbook"
-  de Amplitude (John Cutler, Ted Clark, Abbie Kouzmanoff, Ibrahim Bashir). Validada con evals
-  en [`skills/north-star/evals/`](skills/north-star/evals/evals.json) — 100% de aciertos en
-  los 3 casos de prueba frente a un baseline sin la skill (77% de media, con mucha más
-  varianza: se salta el vision statement, no define inputs, no fija disparador de revisión).
+- **[`north-star`](skills/north-star/)** — choose, define, and pressure-test a product's
+  North Star Metric before building anything on top of it. Based on "The North Star Playbook"
+  by Amplitude (John Cutler, Ted Clark, Abbie Kouzmanoff, Ibrahim Bashir). Validated with evals
+  in [`skills/north-star/evals/`](skills/north-star/evals/evals.json) — 100% pass rate across
+  3 test cases vs. a baseline without the skill (77% average, with much higher variance: skips
+  the vision statement, doesn't define inputs, doesn't set a revisit trigger).
 
-- **[`kpi-tree`](skills/kpi-tree/)** — construye un árbol de métricas (KPI tree) desde un
-  North Star o goal hacia los inputs que lo mueven, con chequeo MECE en cada nivel. Basada en
-  el método de Petra Wille & Shaun Russell.
+- **[`kpi-tree`](skills/kpi-tree/)** — builds a KPI tree (metric tree) from a North Star or
+  goal down to the inputs that drive it, with a MECE check at every level. Based on the method
+  by Petra Wille & Shaun Russell.
 
-Las dos están pensadas para usarse en cadena: `north-star` decide el top, `kpi-tree`
-decompone lo que hay debajo.
+The two are meant to be used in sequence: `north-star` decides the top, `kpi-tree`
+decomposes what's underneath it.
 
-## Instalación
+## Installation
 
-Copia la carpeta de la skill que quieras a tu directorio de skills personales de Claude Code:
+Copy the skill folder you want into your Claude Code personal skills directory:
 
 ```bash
 cp -r skills/north-star ~/.claude/skills/north-star
 cp -r skills/kpi-tree ~/.claude/skills/kpi-tree
 ```
 
-Se activan automáticamente cuando el contexto de la conversación encaja con su descripción, o
-invocándolas explícitamente (`/north-star`, `/kpi-tree`).
+They trigger automatically when the conversation matches their description, or you can invoke
+them explicitly (`/north-star`, `/kpi-tree`).
 
-## Por qué esto existe
+## Why this exists
 
-Escribo sobre IA aplicada a product management. Estas skills nacieron de necesitarlas para mi
-propio trabajo (definir KPIs de mi newsletter) y de encontrarme construyendo un árbol de KPIs
-sin haber cuestionado antes el North Star — el fallo real que `north-star` existe para evitar.
+I write about AI applied to product management. These skills came out of needing them for my
+own work (defining KPIs for my newsletter) and catching myself building a KPI tree without
+having questioned the North Star first — the exact failure `north-star` exists to prevent.
