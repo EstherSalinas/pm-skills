@@ -22,17 +22,23 @@ decomposes what's underneath it.
 
 ## Installation
 
-### As a plugin marketplace (recommended)
+### Claude Cowork (recommended for non-developers)
+
+1. Open **Customize** (bottom-left)
+2. Go to **Browse plugins → Personal → +**
+3. Select **Add marketplace from GitHub**
+4. Enter: `EstherSalinas/pm-skills`
+5. Install `north-star` and/or `kpi-tree` from the list
+
+### Claude Code (CLI)
 
 From inside a Claude Code session:
 
 ```
-/plugin marketplace add esther-paneque/pm-skills
+/plugin marketplace add EstherSalinas/pm-skills
 /plugin install north-star@pm-skills
 /plugin install kpi-tree@pm-skills
 ```
-
-(Replace `esther-paneque/pm-skills` with the repo path once it's pushed to GitHub.)
 
 ### Manual (personal skill, no plugin system)
 
