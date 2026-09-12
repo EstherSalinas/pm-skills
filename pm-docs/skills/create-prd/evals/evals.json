@@ -46,6 +46,21 @@
         {"id": "open_issue_preserved", "text": "The open issue about free-plan accounts is still present unresolved"},
         {"id": "unrelated_sections_untouched", "text": "Sections 1-3 (Problem, Approach, Goals) and Key Milestones were not altered from the original"}
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "Te paso un PRD que escribió un compañero el año pasado con el formato viejo que usábamos (legacy-prd-sample.md), sobre filtros guardados en el listado de tickets. Necesito dos cosas: pasarlo a nuestro formato actual antes de mandárselo a ingeniería, y añadir un requisito nuevo que nos pidió soporte la semana pasada — que al guardar un filtro se pueda marcar como favorito para que aparezca fijado arriba del desplegable. No te inventes nada que no esté en el documento original.",
+      "expected_output": "The legacy document migrated into the three-block structure (Problem Alignment / Solution Alignment / Launch Readiness) with all 8 sections, pulling the real content out of the original: the buried metric (40s per configuration down to under 10s) into the Goals & Success table, the 'si hay tiempo' item (sharing filters with the team) into the deferred bucket rather than mixed with this release, the two unresolved questions into Open Issues & Key Decisions, and the new favourite-filter requirement added to Key Features. Everything the original doesn't provide (target launch date, stakeholders, milestone dates, launch checklist answers) marked PENDING rather than invented.",
+      "files": ["evals/files/legacy-prd-sample.md"],
+      "assertions": [
+        {"id": "three_block_structure", "text": "The output is restructured into the three blocks (Problem Alignment, Solution Alignment, Launch Readiness), not left in the original's generic section layout"},
+        {"id": "launch_checklist_added", "text": "A Launch Checklist is added with all six areas (Support, Growth & Data, Marketing, Enterprise, Platform, Security & Privacy), even though the original document has no cross-functional review at all"},
+        {"id": "buried_metric_extracted", "text": "The metric buried in the original's prose (40 seconds per filter configuration, target under 10 seconds) is surfaced into the Goals & Success table rather than left inside a paragraph"},
+        {"id": "deferred_item_separated", "text": "The original's 'si hay tiempo' item (sharing a saved filter with the team) is placed in the deferred/future-phase bucket, not listed alongside the features shipping in this release"},
+        {"id": "open_questions_preserved", "text": "Both unresolved questions from the original (per-user vs. per-team filters, and whether there's a limit per user) are carried into Open Issues & Key Decisions as open, not silently answered"},
+        {"id": "new_requirement_added", "text": "The new requirement requested in the prompt (mark a saved filter as favourite so it's pinned at the top of the dropdown) is incorporated into Key Features"},
+        {"id": "no_invented_data", "text": "Information the original doesn't contain (target launch date, stakeholders, milestone dates, launch checklist owners/answers) is marked as pending rather than fabricated"}
+      ]
     }
   ]
 }

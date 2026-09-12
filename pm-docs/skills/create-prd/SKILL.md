@@ -117,12 +117,13 @@ user doesn't give a piece of data, use `[PENDING: ...]` instead of dropping the 
 
 ## Editing an existing PRD
 
-When the user attaches or references an already-written PRD in this format (or something
-close to it) and asks for a change:
+**Read the whole document first**, then work out which of two situations you're in — they
+pull in opposite directions, and getting this wrong is the main way an edit goes bad:
 
-1. **Read the whole document first** and identify which blocks and sections already exist,
-   and which rows the tables (Goals, Launch Checklist, etc.) already have, so you don't
-   duplicate or renumber what's already there.
+### Case A — the document is already in this format: patch it, don't rewrite it
+
+1. Identify which blocks and sections already exist, and which rows the tables (Goals,
+   Launch Checklist, etc.) already have, so you don't duplicate or renumber what's there.
 2. **Fit the change into the existing structure**: a new feature goes under "Key Features"
    with its priority; a new flow gets added to "Key Flows" without touching the others; a
    decision that gets resolved is updated in the "Open Issues" table by moving its status to
@@ -130,8 +131,32 @@ close to it) and asks for a change:
    or checklist row is updated in place.
 3. **Keep the tone and level of detail of the rest of the document** — follow its existing
    conventions (e.g. how it marks pending items) instead of imposing your own.
-4. Save the edited file, and if the original was `.docx`, apply the same change there too
-   using the `docx` skill.
+4. Leave everything the user didn't ask about exactly as it was.
+
+### Case B — the document is in a different or older format and they want it migrated
+
+Signals you're here: the document has its own unrelated section layout, or the user says
+something like "pass it to our format", "update this old PRD", or "bring this in line before
+I hand it off". Here, following the original's conventions would defeat the purpose — the
+point is to impose this structure on content that doesn't have it yet.
+
+1. **Restructure into the three blocks**, building all 8 sections.
+2. **Map the original's real content across** rather than paraphrasing it away. Look
+   especially for things the old format buried: a metric sitting inside a paragraph belongs in
+   the Goals & Success table; an item flagged "if there's time" or "nice to have" belongs in
+   the deferred bucket, not alongside committed features; anything the original listed as a
+   doubt or open question belongs in Open Issues, still open.
+3. **Don't fill the new sections just because they're now empty.** A migrated document will
+   have real gaps — the old format never asked for milestones, owners, or a launch checklist.
+   Mark those `[PENDING: ...]`; don't infer a team, a date, or an owner that the original
+   never stated. A migration that invents metadata is worse than the document it replaced,
+   because the invented parts look as sourced as the real ones.
+4. **Say where it came from.** A short migration note at the top — which document this came
+   from, and what was added that wasn't in it — lets a reviewer tell your work from the
+   original author's.
+
+In both cases: save the edited file, and if the original was `.docx`, apply the same change
+there too using the `docx` skill.
 
 ## Tone, language, and writing
 
