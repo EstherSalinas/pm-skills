@@ -1,0 +1,51 @@
+{
+  "skill_name": "create-prd",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Necesito un PRD para una feature nueva de nuestra app de gestión de tareas: 'plantillas de proyecto reutilizables'. El problema: los equipos que crean un tipo de proyecto recurrente (ej. onboarding de cliente) tienen que recrear todas las tareas a mano cada vez, y en la encuesta trimestral el 30% de los power users lo mencionó como fricción. No vamos a resolver en esta fase compartir plantillas entre distintas organizaciones (workspaces), solo dentro del mismo workspace. La solución: permitir guardar cualquier proyecto como plantilla y crear proyectos nuevos a partir de ella. Objetivo: reducir el tiempo medio de creación de un proyecto recurrente de 12 minutos a menos de 3. Features para esta fase: guardar como plantilla, crear proyecto desde plantilla, editar una plantilla existente. Para más adelante (no ahora): plantillas compartidas entre workspaces, y una galería pública de plantillas. Hay dos flujos clave: 'guardar proyecto como plantilla' desde el menú de opciones del proyecto, y 'crear proyecto desde plantilla' desde el botón '+ Nuevo proyecto'. Lanzamiento objetivo: 20 de noviembre. Genera el documento en Markdown, escríbeme en español.",
+      "expected_output": "A Spanish-language Markdown PRD following the three-block skeleton (Problem Alignment, Solution Alignment, Launch Readiness), using the information the user gave and marking with [PENDIENTE: ...] whatever wasn't provided (e.g. the cross-functional Launch Checklist, which the user never mentioned at all).",
+      "files": [],
+      "assertions": [
+        {"id": "written_in_spanish", "text": "The document is written in Spanish"},
+        {"id": "three_block_structure", "text": "Includes the three blocks Problem Alignment, Solution Alignment, and Launch Readiness (or their Spanish names as the skill defines them)"},
+        {"id": "explicit_non_goals", "text": "Includes an explicit 'what we're NOT solving' subsection mentioning sharing templates across workspaces/organizations"},
+        {"id": "goal_metric_present", "text": "The Goals & Success table includes the metric of reducing creation time from 12 minutes to under 3"},
+        {"id": "features_now_vs_deferred", "text": "Key Features clearly separates what ships now (save as template, create from template, edit template) from what's deferred (cross-workspace templates, public gallery)"},
+        {"id": "both_flows_documented", "text": "Key Flows documents both 'save project as template' and 'create project from template' as separate flows"},
+        {"id": "launch_checklist_six_areas", "text": "The Launch Checklist includes all six areas (Support, Growth & Data, Marketing, Enterprise, Platform, Security & Privacy) even though the user gave no such information, marked as pending rather than omitted or invented"}
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "We're a fintech app. I want to draft a PRD for a new feature: 'spending alerts by category'. The problem is users get surprised by their spending in specific categories (like dining out) only when they check the app manually, and support tickets tagged 'unexpected spending' are up 18% quarter over quarter. We are NOT building custom budget-setting in this phase, and we're NOT doing predictive alerts (like 'you're on track to overspend') - just threshold-based alerts on actual spend so far. Success metric: reduce 'unexpected spending' support tickets by 25% within one quarter of launch. Key features for this release: set a monthly $ threshold per category, push notification when threshold is crossed, weekly digest email summarizing category spend. Deferred: predictive/forecasted alerts, custom recurring budgets. One key flow: user goes to Settings > Alerts, picks a category, sets a dollar threshold, saves. Open question we haven't resolved yet: should alerts be on by default for all users or opt-in only? There's a real debate - product wants opt-out (higher engagement) but support worries about notification fatigue complaints. Write this in English, markdown is fine.",
+      "expected_output": "An English-language PRD following the same three-block Figma structure, correctly capturing both explicit non-goals, the deferred features, the single key flow described, and surfacing the opt-in vs. opt-out debate in Open Issues & Key Decisions as unresolved with the trade-off explained rather than the assistant silently picking a side.",
+      "files": [],
+      "assertions": [
+        {"id": "written_in_english", "text": "The document is written in English"},
+        {"id": "three_block_structure", "text": "Includes all three blocks: Problem Alignment, Solution Alignment, Launch Readiness"},
+        {"id": "both_non_goals_listed", "text": "The 'what we're NOT solving' subsection lists both non-goals: no custom budget-setting and no predictive/forecasted alerts"},
+        {"id": "goal_metric_present", "text": "The Goals & Success table includes the 25% reduction in 'unexpected spending' support tickets metric"},
+        {"id": "features_now_vs_deferred", "text": "Key Features separates this-release items (threshold, push notification, weekly digest) from deferred items (predictive alerts, custom recurring budgets)"},
+        {"id": "key_flow_documented", "text": "Key Flows documents the Settings > Alerts > pick category > set threshold > save flow"},
+        {"id": "debate_left_unresolved", "text": "Open Issues & Key Decisions presents the opt-in vs. opt-out debate as unresolved, with both sides' trade-offs explained, rather than the assistant deciding unilaterally"},
+        {"id": "launch_checklist_six_areas", "text": "The Launch Checklist includes all six functional areas (Support, Growth & Data, Marketing, Enterprise, Platform, Security & Privacy)"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Adjunto el PRD que ya tenemos para los recordatorios de renovación de suscripción. Necesito dos cambios: 1) Añadir un flujo clave nuevo 'Aviso in-app' (el banner del dashboard) que falta documentar - aparece nombrado en Features Clave pero no tiene su propio flujo en la sección 5. El flujo es: el usuario ve un banner en la parte superior del dashboard los últimos 3 días antes de la renovación, con el importe y un botón 'Ver detalles' que lleva a la pantalla de suscripción. 2) Ya hablamos con Support y con Marketing: Support dice que no necesitan nada especial preparado (van a usar los artículos de ayuda ya existentes sobre cancelación), y Marketing confirma que no habrá comunicación externa porque es un cambio silencioso. Actualiza esas dos filas del Launch Checklist a OK con esa info. No toques el resto del documento.",
+      "expected_output": "The existing document edited in place: the 'Aviso in-app' flow subsection is added under section 5 without touching the existing email flow, and the Support and Marketing rows in the Launch Checklist move to OK with the given info — the rest of the document (Problem, Goals, Milestones, the already-OK Growth & Data row, the open issue about free-plan accounts) stays the same as the original.",
+      "files": ["evals/files/existing-prd-sample.md"],
+      "assertions": [
+        {"id": "original_flow_untouched", "text": "The original 'Email de recordatorio' flow is still present unchanged in section 5"},
+        {"id": "new_flow_added", "text": "A new 'Aviso in-app' flow is added in section 5 mentioning the banner, the 3 days before renewal, and the 'Ver detalles' button"},
+        {"id": "support_row_updated", "text": "The Support row in the Launch Checklist moves to OK status mentioning the existing help articles"},
+        {"id": "marketing_row_updated", "text": "The Marketing row in the Launch Checklist moves to OK status mentioning that there will be no external communication"},
+        {"id": "other_rows_untouched", "text": "The Growth & Data row stays OK unchanged, and the Enterprise, Platform, and Security & Privacy rows stay Pending unaltered"},
+        {"id": "open_issue_preserved", "text": "The open issue about free-plan accounts is still present unresolved"},
+        {"id": "unrelated_sections_untouched", "text": "Sections 1-3 (Problem, Approach, Goals) and Key Milestones were not altered from the original"}
+      ]
+    }
+  ]
+}

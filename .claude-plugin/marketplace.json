@@ -12,6 +12,12 @@
       "source": "./pm-metrics",
       "description": "Define a product's North Star Metric and decompose it into a full KPI tree (north-star + kpi-tree skills).",
       "version": "1.0.0"
+    },
+    {
+      "name": "pm-docs",
+      "source": "./pm-docs",
+      "description": "Structured product documentation for PMs, starting with create-prd — a single-feature PRD in Figma's public Problem Alignment / Solution Alignment / Launch Readiness format.",
+      "version": "1.0.0"
     }
   ]
 }

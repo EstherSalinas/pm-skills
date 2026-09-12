@@ -1,0 +1,10 @@
+{
+  "name": "pm-docs",
+  "displayName": "PM Docs",
+  "description": "Structured product documentation for PMs — starting with create-prd, which writes a single-feature PRD in Figma's public Problem Alignment / Solution Alignment / Launch Readiness format, complete with a cross-functional launch checklist.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Esther Salinas",
+    "email": "esther.paneque@gmail.com"
+  }
+}
