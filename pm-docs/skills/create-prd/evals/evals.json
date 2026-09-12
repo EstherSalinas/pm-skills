@@ -61,6 +61,22 @@
         {"id": "new_requirement_added", "text": "The new requirement requested in the prompt (mark a saved filter as favourite so it's pinned at the top of the dropdown) is incorporated into Key Features"},
         {"id": "no_invented_data", "text": "Information the original doesn't contain (target launch date, stakeholders, milestone dates, launch checklist owners/answers) is marked as pending rather than fabricated"}
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Somos una app de fitness. Queremos lanzar una feature de rachas: si entrenas 5 días seguidos, te damos un cupón para gastar con partners asociados tipo MyProtein. Necesito el PRD para el lunes.",
+      "expected_output": "A thin-input stress test. The brief supplies no metric, no evidence, no scope boundaries, no flows and no commercial detail, so the correct behaviour is NOT a confident finished PRD: it is the full structural skeleton with every unsupported field marked PENDING, the questions that need answering stated plainly, and the feature's hidden dependencies surfaced as open issues — above all whether a partner agreement exists and who funds the discount, how a 'training day' is defined and protected against gaming, and the data-sharing implications of redeeming a coupon with a third party. Any invented metric, target or piece of user research is a failure.",
+      "files": [],
+      "assertions": [
+        {"id": "no_invented_metric", "text": "Does not invent a success metric or numeric target (e.g. a made-up retention lift or redemption rate); any metric is either marked pending or clearly framed as a proposal to confirm"},
+        {"id": "no_invented_evidence", "text": "Does not fabricate supporting evidence — no invented user research, survey results, support-ticket volumes or benchmark figures the brief never provided"},
+        {"id": "partner_dependency_surfaced", "text": "Surfaces the commercial/partner dependency as unresolved: whether an agreement with the third-party partners actually exists, and who funds the discount"},
+        {"id": "streak_definition_surfaced", "text": "Surfaces that 'training 5 days in a row' is undefined — what counts as a workout, how days/timezones/rest days are treated, and the risk of users gaming the streak with trivial activity"},
+        {"id": "privacy_question_surfaced", "text": "Surfaces the data-sharing/privacy implication of redeeming a coupon with an external partner, rather than treating redemption as a purely internal feature"},
+        {"id": "gaps_marked_pending", "text": "Unstated information (team, dates, stakeholders, milestones, checklist owners, scope boundaries) is marked pending rather than filled in with plausible inferences"},
+        {"id": "structure_still_produced", "text": "Still produces the three-block structure and the six-area Launch Checklist, so the gaps are visible in context rather than the document being abandoned as too vague"},
+        {"id": "requested_vs_assumed", "text": "Distinguishes what was actually asked for from what the document is assuming or proposing, instead of presenting its own assumptions as settled requirements"}
+      ]
     }
   ]
 }
